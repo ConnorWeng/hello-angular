@@ -16,4 +16,10 @@ describe('Controller: LoginCtrl', function () {
     it('should have a LoginCtrl controller', function () {
         expect(loginCtrl).not.toBe(null);
     });
+
+    it('should have a working loginService', inject(['loginService', function (loginService) {
+        expect(loginService).not.toBe(null);
+        expect(loginService.isValidEmail('dddd@bbbb')).toBeTruthy();
+        expect(loginService.isValidEmail('bbbb')).toBeFalsy();
+    }]));
 });
